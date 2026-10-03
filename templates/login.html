@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Secure Login - 2FA</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="security-icon">
+        🔐
+    </div>
+
+    <h2>Secure Login</h2>
+
+    <p>
+        Two-Factor Authentication
+    </p>
+
+
+    <!-- FLASH MESSAGES -->
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+
+        {% for category, message in messages %}
+
+            {% if category == "login_error" %}
+
+                <div class="error-message">
+                    ❌ {{ message }}
+                </div>
+
+            {% endif %}
+
+
+            {% if category == "register_success" %}
+
+                <div class="success-message">
+                    ✓ {{ message }}
+                </div>
+
+            {% endif %}
+
+
+            {% if category == "logout_success" %}
+
+                <div class="success-message">
+                    ✓ {{ message }}
+                </div>
+
+            {% endif %}
+
+        {% endfor %}
+
+    {% endwith %}
+
+
+    <!-- LOGIN FORM -->
+
+    <form method="POST">
+
+        <div class="form-group">
+
+            <label for="username">
+                Username
+            </label>
+
+            <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Enter username"
+                required>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="password">
+                Password
+            </label>
+
+            <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter password"
+                required>
+
+        </div>
+
+
+        <button type="submit">
+            Login
+        </button>
+
+    </form>
+
+
+    <a href="{{ url_for('register') }}">
+        Create New Account
+    </a>
+
+</div>
+
+</body>
+
+</html>

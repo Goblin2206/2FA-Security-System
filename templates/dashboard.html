@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard - 2FA</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="dashboard-icon">
+        🛡️
+    </div>
+
+    <h2>Welcome!</h2>
+
+    <p>
+        You have successfully completed
+        Two-Factor Authentication.
+    </p>
+
+
+    <div class="security-status">
+        ✓ Authentication Successful
+    </div>
+
+
+    <div class="dashboard-info">
+
+        <p>
+            <strong>Username:</strong>
+            {{ username }}
+        </p>
+
+        <p>
+            <strong>Email:</strong>
+            {{ email }}
+        </p>
+
+        <p>
+            <strong>Security:</strong>
+            2FA Enabled
+        </p>
+
+    </div>
+
+
+    <a
+        href="{{ url_for('logout') }}"
+        class="logout-btn">
+
+        Logout
+
+    </a>
+
+</div>
+
+</body>
+
+</html>
